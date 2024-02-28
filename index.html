@@ -3,6 +3,57 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Vis &amp; Society Assignment 2</title>
 	<link rel="stylesheet" href="./Vis &amp; Society Assignment 2_files/report.css">
+	<style>
+img {
+  width: 60vw;
+  object-fit: contain;
+}
+
+.animated {
+  position: relative;
+}
+.layer1 {
+	opacity: 100%;
+}
+
+.layer2 {
+	opacity: 100%;
+}
+
+.layer3 {
+	opacity: 0%;
+}
+
+.animated .bottom {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.top {
+  animation-name: fade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-direction: alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+	</style>
 </head>
 
 <body>
@@ -27,94 +78,228 @@
 				<li>Who is doing the evictions?</li>
 				<li>Where are evictions happening?</li>
 			</ol>
-			<p>For my first question, I wanted to look more specifically into the range and number of household incomes, racial demographics, and age ranges. The "Housing Justice
-				Beyond the Emergency" readings establishes that communities of color and single mothers are most vulnerable to evictions, and I wanted to examine the dataset to visualize that
+			<p>For my first question, I wanted to look more specifically into the range and number of household incomes, the racial demographic breakdowns, and the age ranges represented in eviction data. 
+				Readings in class such as "Housing Justice Beyond the Emergency" have established various communities that are the most vulnerable to evictions, and they include single mothers, communities of color,
+				and younger families. I want to look at these trends quanitatively from an intersectional lens, and try to examine how overlapping identites may affect their evictions. 
+				I believe that understanding who is most affected by this issue will be a great starting point to creating more impactful visualizations.
 			</p>
-			<p>For my second question, I wanted to understand the effects of private equity and corporate Landlords, because I was first introduced to these concepts during the readings for A1 (When Private Equity Becomes Your Landlord)
+			<p>For my second question, I want to look more specifically into the prevelance of corporate landlords, learn what kinds of businesses most often take part in this practice, and find out how long they've been in 
+				this market. I think that this line of questions will help me understand the extent of influence that corporate landlords have over the housing sector and how the companies in this business interact with each other.
+				This information is especially important to me because the idea of private equity groups acting as landlords is a very new concept to me. I first learned about it through the readings for A1, 
+				"When Private Equity Becomes Your Landlord." The stories of the folks displaced in this article concerned me a lot, and were a large part of the reason why I chose this subtheme to study.
 			</p>
-			<p>For my third question, I wanted to approach the dataset with a more spatial lens, overlaying eviction locations with any spatial data that exists on the information in questions 1 and 2
-				I believe that this might provide insights that numbers alone won't be able to show.
+			<p>For my third question, I wanted to approach this subtheme with a more spatial lens, exploring how community location affects eviction rates and the prevalence of corporate landlords. 
+				I hope to be able to overlay eviction location information or corporate landlord presence with any spatial data that exists on the information in Question 1, including racial, age, and socioeconomic
+				demographics. I believe that spatial data will provide insights that graphs alone won't be able to provide; in my urban planning classes, we are constantly reminded of how important space and place are
+				when disecting issues like evictions, especially when spatial forces such as redlining have been used to keep communities of colors from accessing housing stability. 
+			</p>
+			<p>				
+				Some of the questions that I was hoping to explore were infeasible with the corporate landlords dataset, such as the trends in racial breakdowns of renters for each neighborhood over time and any spatial information. 
+				To be honest, I struggled quite a bit with this assignment. I found it a bit difficult to create visualizations with
+				the corporate landlord data provided, because of its limited set of dimensions and measures. I saw that more eviction data will
+				be provided as this class progresses, and I'm excited to analyze it when it comes! Still, I hope to keep my guiding questions above in mind
+				as I progress onto A3 and the final project.
 			</p>
 		</section>
 
 		<section>
 			<h2>Discoveries &amp; Insights</h2>
 
+			<p>
+				After writing these three questions, I took a look at the raw and metadata for the Corporate
+				landlords dataset. I realized that there were a few groups of data that I was able to work with.
+				Most importantly, there were the Corporate Ownership and Owner Occupancy rates, which varied based on both 
+				year and neighborhood. Aside from that, there were various neighborhood-specific fields provided,
+				though this information did not vary by year. This included racial identity, which was further 
+				divided into ages 0-17 and ages 18+, and populations living in various types of group quarters. 
+				Finally, there was information on the number of units available, split into vacant and occupied.
+			</p>
+
+			<p>
+				After this data scan, I realized that there were some important strategies for
+				use for my analysis, as well as some limitations. 
+
+Lack of variability over time means that correlating certain own occ or corp own values for a year with demographic data may not be accurate to current trends
+Some boston neighborhoods are missing (mission hill, back bay)
+Confirm that demographic rates add up to 1
+Was unsure which fields added up to total gq population
+Vacant and occ add up to total units
+Outliers in a couple of areas
+Vacant units = dorchester
+Fenway = college students
+May be affected by geographical quality and historical events rather than solely demographic data
+Stories very important to this process
+Had to also ensure that I was sorting to single years or finding ratios rather than just taking the sum
+			</p>
+
+			<p>After considering all of this information, I began making visualizations</p>
+
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/own_occ_over_time.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				The first field I decided to look at was Owner Occupancy Rate. This is a notably
+				simple visualization that maps the change in average owner occupancy rate across each 
+				year. As shown by the graph above, it seems like owner occupancy has decreased 
+				by about 6 percent in Boston. This drop in owner occupancy may be reflective of the 
+				trend of "flipping" apartments for a profit and other similar forces that destabilize 
+				the housing market. After making this visualization, however, I noticed that the value 
+				for owner occupancy was averaged over each neighborhood, and should be normalized or disaggregated.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/disagg_own_occ_vs_time.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				I chose to disaggregate the owner occupancy data over each neighborhood, and visualize these trends
+				in a much similar way. Though the output of this visualization was a originally mess of lines, I decded to
+				highlight three neighborhoods: West Roxbury, Brighton, and South Boston Waterfront. This is because they have very 
+				different shapes. While Brighton's line sloped downward, much like the previous figure, the West Roxbury line remained
+				very stagnant, and the South Boston Waterfront line had a parabola-like shape! I also noticed
+				that the range of 2024 owner occupancy rates went from 20 to 70 percent, which was not at all reflected in my 
+				first visualization. This disaggregating helped demonstrate how differently each neighborhood experiences housing
+				trends, and taught me that I should disaggregate data by neighborhood whenever I am able to potentially uncover new trends.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/corp_own_rate_vs_time.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				After doing my initial analysis of Owner Occupancy Rates, I turned my attention to the other figure that varied
+				over both year and neighborhood: Corporate Ownership Rate. Our in-class readings had drawn attention to the prevalence of
+				corporate landlords, but I was interested in finding out how people are affected by these trends more quantitatively. 
+				In this visualization, I decided to map the average Corporate Ownership Rate over time again, but add markers corresponding
+				to each neighborhood and their population size. From this, we were able to see that corporate ownership has increased 
+				in neighborhoods across the board, with an average increase of about 20 percentage points. Having one fifth of units 
+				be owned by corporate landlords is a very scary statistic, and this graph shows it will only get worse.
+				The only difference between neighborhoods is how much worse it will get. For this reason, I wanted to learn more about what
+				information is correlated with corporate ownership and owner occupancy rates.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/corp_own_vs_own_occ.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				First, I decided to look at how corporate ownership and owner occupancy rates are correlated with
+				each other. Based on the trend lines provided, these two variables have a negative correlation; the higher 
+				the owner occupancy rate, the lower the corporate overship rate. I believe this information is in line with
+				our readings that decribe how more interconnected communities that can self advocate have reduced eviction rates,
+				likely because they can push out forces such as corporate landlords. One more trend that is visualized above is 
+				that this correlation has become more negative over the past 20 years, as neighborhood disparities in corporate ownership
+				and owner occupancy has become more apparent. I hope that we can work towards addressing these disparities in the future.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/vacant_units_corp_ownership.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				After this point, I decided to look into the data fields that were not year-dependent and understand their
+				correlation with owner occupancy and corporate ownership. The visulization above shows the proportion of units
+				that were vacant in each neighborhood. Though all of these values are less than 20 percent, West End, Downtown, 
+				and South Boston Waterfront were the neighborhoods with the three highest vacancy rates. This visualization also
+				color each bar based on its neighborhood's 2024 corporate ownership rate. More vacant neighborhoods, such as the three mentioned
+				previously, tended to have darker bars, or higher corproate landlord rates.
+				
+
+				This correlation may be connected to the fact that corporate landlord often have the ability
+				to be neglectful of properties since they often have a larger number of assets they can pull profit from 
+				compared to a single-person landlord. This allows corporate landlords to leave properties vacant, 
+				as evicting tenants may be more profitable than maintaining their units.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/group_quarters_types.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				After looking into unit vacancy, I also took a look at the types of group quarters described in the data.
+				I decided to put these quartering types into four main categories: correctional & juvenile occupants, military
+				occupants, nursing occupants, and college occupants. Though this visualization does not include any information about
+				corporate ownership and owner occupancy, I believe that it was still a valuable graphic for me because it lends to some 
+				interesting observations about each neighborhood. For example, Roxbury has the greatest number of people in correctional 
+				and juvenile facilities, while multiple neighborhoods had 0 people. Additionally, military occupants were only recorded in 
+				North End and Charlestown, and the greatest number of college occupants was recorded in Fenway, which makes sense given its 
+				proximity to various higher education institutions. Finally, many neighborhoods had people in nursing, though Longwood,
+				Roxbury, South Boston Waterfront, South End and West End didn't have any at all. These findings gave me some insight into which neighborhoods have what resources, which was very helpful when looking at
+				racial data later.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<img src="./Vis &amp; Society Assignment 2_files/gq_vs_corp_own.png" alt="">
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				After inspecting the disaggregated group quartering information in the dataset, I decided to
+				take a look at the proportion of the total population in group quarters and see how that corresponds
+				to corporate ownership. As seen in the graphic above, quite a few neighborhoods had very small, if not 0, counts
+				of people in group quarters, so I decided to filter out all neighborhoods with a group quartering rate greater than 2%.
+				After this filtering, I found that group quartering rate correlated positively with corporate ownership rate. 
+				While I don't believe that these two dimensions affect each other directly, I think that areas with increased
+				group quarters may include people that are more transient in their communities. For example, college students usually don't
+				stay in their college town for much time before or after becoming a student. Because of that, these neighborhoods may not
+				have as strong of communities that can fight against the introduction of corporate landlords.
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<div class="animated">
+					<img class="bottom" src="./Vis &amp; Society Assignment 2_files/demo_by_neighborhood_tot_pop.png" alt="">
+					<img class="bottom top" src="./Vis &amp; Society Assignment 2_files/demo_by_neighborhood_0_17.png" alt="">
+					<img class="layer3" src="./Vis &amp; Society Assignment 2_files/demo_by_neighborhood_tot_pop.png" alt="">
+				</div>
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				Finally, I decided to take a look at the racial demographic data in this dataset. Though this dataset only includes one 
+				year of demographic data, I still think that it's valuable to gain an understanding of the current racial breakdowns in each 
+				neighborhood. I first made a stacked bar graph showing the racial proportions for the whole population recoded in the dataset. 
+				From this graph, I mostly noticed that there may be some neighborhoods that could serve as good case studies and comparisons
+				in future analysis of corporate landlords and evictions. These case study groups were:
+				<ul>
+					<li>
+						Mattapan, Roxbury, and Dorchester - Neighborhoods with the highest proportions of people of color
+					</li>
+					<li>
+						North End, Beacon Hill, and South Boston Waterfront - Neighborhoods with the highest White proportions
+					</li>
+					<li>
+						Mattapan, Hyde park, and Roxbury - Neighborhoods with the highest Black proportions
+					</li>
+					<li>
+						Chinatown (59%), Longwood (62%), Mattapan (68%) - Neighborhoods that have a comparable proportion of one racial group predominating
+					</li>
+				</ul>
+				After noting these neighborhoods, I also decided to make the same visualization for racial groups ages 0-17, which is present in the 
+				above animation.
+				
 				</figcaption>
 			</figure>
 
 			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
+				<div class="animated">
+					<img class="bottom" src="./Vis &amp; Society Assignment 2_files/18+.png" alt="">
+					<img class="bottom top" src="./Vis &amp; Society Assignment 2_files/0_17.png" alt="">
+					<img class="layer3" src="./Vis &amp; Society Assignment 2_files/change_between_18_plus.png" alt="">
+				</div>
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+					Shows that communities are becoming less white! Might mean more diverse, might mean that white people are leaving
+					https://www.nytimes.com/2021/08/12/us/boston-population-growth.html
+
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<img src="./Vis &amp; Society Assignment 2_files/own occ vs nonwhite.png" alt="">
+				<figcaption>
+					Positively correlated! Super interesting find, very excited to learn more
+					Outliers from less densely populated regions					
 				</figcaption>
 			</figure>
 
-			<figure>
-				<img src="./Vis &amp; Society Assignment 2_files/IMAGE_FILENAME" alt="">
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
 		</section>
 
 		<section>
 			<h2>Summary</h2>
 
-			<p>WRITE FINAL SUMMARY HERE.</p>
+			<p>In this dataset, we were provided a variety of statistics for a neighborhood, as well as the 
+				corporate ownership and owner occupancy rates over the years of 2004 to 2024. With this data,
+				I was able to visualize ...
+			</p>
 		</section>
 	</main>
 
